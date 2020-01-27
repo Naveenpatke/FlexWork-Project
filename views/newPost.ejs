@@ -1,0 +1,40 @@
+<% include partials/header %>
+    
+    
+        <div class="ui inverted container segment">
+            <div class ="ui huge header ">New Project</div>
+            <div class="ui inverted form">
+                
+                    <form action="/blogs" method="POST">
+                        <div class="field">
+                            <label>Title</label>
+                            <input name="blog[title]" placeholder="Title" type="text">
+                        </div>
+                        <div class="field">
+                            <label>ImageUrl</label>
+                            <input name="blog[image]" placeholder="ImageUrl" type="text">
+                        </div>
+                        <div class="field">
+                            <label>Skills</label>
+                            <input name="blog[skills]" placeholder="skills" type="text">
+                        </div>
+                        <div class="field">
+                            <label>Project Description</label>
+                            <textarea name="blog[body]"></textarea>
+                        </div>
+                        <div class="field">
+                            <label>Upload files</label>
+                            <input name="blog[uploadfile]" placeholder="Title" type="file">
+                        </div>
+                        <div class="field">
+                            <label>Budget</label>
+                            <input name="blog[budget]" placeholder="budget" type="text">
+                        </div>
+                        <button class="ui inverted button">Submit</button>                        
+                    </form>
+ 
+            </div>
+        </div>
+    
+
+<% include partials/footer %>

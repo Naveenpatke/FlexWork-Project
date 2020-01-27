@@ -1,0 +1,37 @@
+<% include partials/header %>
+
+        <style>
+        img{
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+            width: 350px;
+            height:160px;
+        }
+        
+    </style>
+
+        <% blogs.forEach(function(blog){ %>
+           <div class="ui inverted segment container">
+                <div class="ui huge header">
+                    <h1><%= blog.title %></h1>
+                </div>
+                <div class="ui inverted segment container grid">
+                    <div class="six wide column">
+                        <img src="<%= blog.image %>" alt="<%= blog.title %>">
+                    </div>
+                    <div class="nine wide column">
+                        <span><%- blog.body.substring(0,400) %>...</span>
+                        <a href="/showcurrentuserblog/<%= blog._id%>">Read more...</a>
+                    </div>
+                    
+                </div>
+                <div class="card-footer text-muted">
+                        <p>Posted on : <%= blog.created.toDateString() %></p>
+                        <a href="#"></a>
+                </div>
+            </div>
+        <% }); %>
+        <br>
+<% include partials/footer %>
+

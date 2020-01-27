@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FlexWork</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/BlogApp.css">
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+        <link rel="stylesheet" type="text/css" href="https://www.peopleperhour.com yii_packages/css/css_pkg_css-white-lion_227f8fed07a68aea68984a6732104cdd.css" />
+    </head>
+    <body>
+        <div class="ui fixed inverted  menu">
+            <a class="active item" href="/">
+                <p><i class="edit outline icon"></i>FlexWork</p>
+            </a>
+            <a href="/blogs" class="item">
+                Home
+            </a>
+            <a href="/blogs/new" class="item">
+                New Post
+            </a>
+            <div class="right menu">
+                <a href="/addProfileDetails/<%= currentUser._id %>" class="item">Add Profile</a>
+                <a href="/user/<%= currentUser._id %>" class="item">Signed in as <%= currentUser.username.toUpperCase() %></a>
+                <a href="/logout" class="item">Logout</a>
+                
+                
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="container">
+        <% if(error && error.length > 0){ %>
+            <div class="alert alert-danger" role="alert">
+                <%= error %>
+            </div>
+        <% } %>
+        <% if(success && success.length > 0){ %>
+            <div class="alert alert-success" role="alert">
+                <%= success %>
+            </div>
+        <% } %>
+    </div>

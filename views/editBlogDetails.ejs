@@ -1,0 +1,42 @@
+<% include partials/header %>
+            <br>
+         <div class="ui inverted container segment">
+            <div class ="ui huge header ">Edit Post</div>
+            <div class="ui inverted form">
+                
+                    <form action="/update/<%= blog._id %>?_method=PUT" method="POST">
+                        <div class="field">
+                            <label>Blogger Name</label>
+                            <input name="blog[bloggerName]" placeholder="Title" type="text" value="<%= blog.bloggerName %>">
+                        </div>
+                        <div class="field">
+                            <label>Title</label>
+                            <input name="blog[title]" placeholder="Title" type="text" value="<%= blog.title %>">
+                        </div>
+                        <div class="field">
+                            <label>ImageUrl</label>
+                            <input name="blog[image]" placeholder="ImageUrl" type="text" value="<%= blog.image %>">
+                        </div>
+                        <div class="field">
+                            <label>Skills</label>
+                            <input name="blog[skills]" placeholder="skills" type="text" value="<%= blog.skills %>">
+                        </div>
+                        <div class="field">
+                            <label>Project Description</label>
+                            <textarea name="blog[body]"><%= blog.body %></textarea>
+                        </div>
+                        <div class="field">
+                            <label>Upload files</label>
+                            <input name="blog[uploadfile]" type="file" value="<%= blog.uploadfile %>">
+                        </div>
+                        <div class="field">
+                            <label>Budget</label>
+                            <input name="blog[budget]" placeholder="budget" type="text" value="<%= blog.budget %>">
+                        </div>
+                        <button class="ui inverted button">Submit</button>                        
+                    </form>
+ 
+            </div>
+        </div>
+
+<% include partials/footer %>

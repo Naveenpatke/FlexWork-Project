@@ -1,0 +1,39 @@
+<% include partials/header %>
+
+        <% blogs.forEach(function(blog){ %>
+           <div class="ui inverted segment container">
+                <div class="ui huge header">
+                    <h1><%= blog.title %></h1>
+                </div>
+                <div class="ui inverted segment container grid">
+                    <div class="four wide column">
+                        <img src="<%= blog.image %>" alt="Scenary Image">
+                    </div>
+                    <div class="nine wide column">
+                        <span><%= blog.body.substring(0,250) %>...</span>
+                        <a href="/show/<%= blog._id%>">Read more...</a>
+                    </div>
+                    <div class="three wide column">
+                        <div class="strected row">
+                            <div class="column">
+                                <div class="ui inverted segment">
+                                    <p><%= blog.created.toDateString() %></p>
+                                </div>
+                                <div class="ui inverted segment">
+                                    <p></p>
+                                    <h1></h1>
+                                </div>
+                                <div class="ui inverted segment">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% }); %>
+        <br>
+
+        
+<% include partials/footer %>
+

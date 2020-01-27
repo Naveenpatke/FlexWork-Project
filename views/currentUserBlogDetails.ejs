@@ -1,0 +1,105 @@
+<% include partials/header %>
+    
+    <style>
+        img{
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+            width: 600px;
+            height: 250px;
+        }
+        
+        .commentBorders{
+            border: 1px solid black;
+        }
+
+    </style>
+
+    
+    <div class="ui inverted segment container" style="max-width:1000px">
+        <div class="ui huge header"><%= blog.title %></div>
+        <hr>
+            <div class="ui top attached">
+                <div class="item">
+                    <img class="ui rounded centered image" src="<%= blog.image %>" alt="<%=blog.title %>">
+                </div>
+                <hr>
+                <div class="content">
+                    <span>Posted on : <%= blog.created.toDateString() %></span>
+                </div>
+                <hr>
+                <div class="description">
+                    <label><b>Skills</b></label>
+                    <p><%= blog.skills %></p>
+                </div>
+                <hr>
+                <div class="description">
+                    <label><b>Budget</b></label>
+                    <p>Rs : <%= blog.budget %>/-</p>
+                </div>
+                <hr>
+                <div class="description">
+                <label><b>Project Description</b></label>
+                    <p><%- blog.body %></p>
+                </div>
+
+            </div>
+        <br>
+            <hr>
+            <center>
+                <a href="/show/<%= blog._id %>/edit"><button class="ui inverted  button">Edit Post</button></a>
+            <form id="delete" action="/delete/<%= blog._id %>?_method=DELETE" method="POST">
+                <button class ="ui inverted button" >Delete Post</button>
+            </form>
+            </center>
+        
+        </div>
+    </div>
+    
+    <br>
+    <hr>
+    <h4 style="color:black"><b>Comments:</b></h4>
+    <br>
+    <div class="container" style="max-width:1000px">
+     <% blog.currentBlogComment.forEach(function(commentDetails){ %>
+            <div class="ui comments">
+                <div class="comment">
+                    <a class="avatar">
+                    <img src="https://cdn3.vectorstock.com/i/1000x1000/38/22/stats-user-logo-icon-design-vector-22953822.jpg">
+                    </a>
+                    <div class="content ">
+                    <div class="author">
+                        <h5><strong> <a href="/showuser/<%= commentDetails.commenter %>"><%= commentDetails.commenter %></a></strong></h5>
+                    </div>
+                        
+                    <div class="text">
+                       <h6><strong>Comment :</strong>  <%= commentDetails.comment %> </h6>
+                    </div>
+                    <div class="text">
+                        <h6><strong>Final Offer : </strong><%= commentDetails.rating %></h6>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+        <br>
+        </div>
+
+        <div class="container" >
+            <form class="ui reply form" action="/currentUserBlogsComment/<%=blog._id%>" method="POST">
+                <div class="field commentBorders">
+                <textarea name="comment" placeholder="Comment Section"></textarea>
+                </div>
+                <div class="commentBorders">
+                     <input type="number" name="rating" placeholder="Final Offer">
+                </div>
+                <br>
+                
+                <button class="ui inverted button" style="color:black">Comment</button> 
+                <br>
+                <br>
+            </form>
+        </div>
+        </div>
+   
+
+<% include partials/footer %>
